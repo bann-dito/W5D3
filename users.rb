@@ -1,5 +1,6 @@
 require_relative 'QuestionsDatabase.rb'
 require_relative 'question_follows.rb'
+require_relative 'replies.rb'
 
 class User
   attr_accessor :fname, :lname, :id
@@ -52,6 +53,10 @@ class User
 
   def followed_question_for_user_id
     QuestionFollow.followed_question_for_user_id(self.id)
+  end
+
+  def authored_replies
+
   end
 
 end
