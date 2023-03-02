@@ -75,6 +75,12 @@ VALUES
     ((SELECT id FROM questions WHERE title = 'Ned Q' ),
     (SELECT id FROM users WHERE fname = 'Ned' AND lname = 'N'));
 
+INSERT INTO
+    question_follows (question_id, user_id)
+VALUES
+    ((SELECT id FROM questions WHERE title = 'Ned Q' ),
+    (SELECT id FROM users WHERE fname = 'Kush' AND lname = 'K'));
+
 INSERT INTO 
     replies (question_id, author_id, body, parent_reply_id)
 VALUES 
