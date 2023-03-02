@@ -1,7 +1,8 @@
 require_relative 'QuestionsDatabase.rb'
+require_relative 'question_follows.rb'
 
 class User
-  attr_accessor :fname, :lname
+  attr_accessor :fname, :lname, :id
 
   def self.find_by_id(id)
     new_user = QuestionsDatabase.instance.execute(<<-SQL, var: id)
@@ -48,4 +49,9 @@ class User
     @fname = options['fname']
     @lname = options['lname']
   end
+
+  def followed_question_for_user_id
+    QuestionFollow.followed_question_for_user_id(self.id)
+  end
+
 end
